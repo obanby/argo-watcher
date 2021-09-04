@@ -1,37 +1,27 @@
 package main
 
 import (
-	"encoding/json"
-	"io/ioutil"
+	"flag"
 	"log"
-	"net/http"
+	"os"
 	"time"
 )
 
-type ArgoEvent struct {
-	ID        int
-	Reason    string `json:"reason"`
-	Message   string `json:"message"`
-	TimeStamp string `json:"firstTimestamp"`
-}
-
-type Response struct {
-	Items []ArgoEvent `json:"items"`
-}
-
 func main() {
-	itterate()
-}
+	var appName string
+	flag.StringVar(&appName, "name", "", "an argo application name to watch")
+	flag.Parse()
 
-func fatal(err error, msg string) {
-	if err != nil {
-		log.Fatalf("%s: %v", msg, err)
+	if appName == "" {
+		log.Fatalf("must provide a valid application name -name=<appname>")
 	}
+
+	watchEvents(appName)
 }
 
 // TODO:
-//  - Extract only the time stamp without the date and print it
-//  - Add `reason` property to the log
+//  - Extract only the time stamp without the date and print it [√]
+//  - Add `reason` property to the log [√]
 //  - Add unit tests to all of them
 //  - Add flags to allow using iteration events vs streams
 //  - Add a flag modifier to specify the application name to watch
@@ -39,36 +29,19 @@ func fatal(err error, msg string) {
 // 	- Add context so you would be able to time out after 5 minutes
 //  - Add goroutines
 
-
-func itterate() {
+func watchEvents(appName string) {
 	var eventPrinter = NewEventPrinter()
 	for {
-		const ARGOCD_SERVER = "http://127.0.0.1:8080/api/v1"
-		url := ARGOCD_SERVER + "/applications/sock-shop-example/events"
-		barer := "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzA4NTYwODYsImp0aSI6IjExOGVkYmUwLTAwZDctNDhjZC1iOTQ2LTE0ZjJlZmFiYjk1NCIsImlhdCI6MTYzMDc2OTY4NiwiaXNzIjoiYXJnb2NkIiwibmJmIjoxNjMwNzY5Njg2LCJzdWIiOiJhZG1pbjpsb2dpbiJ9.YmZjZEK2DHGQvKtRiePawveD5TIu8sykNlvY47xykU8"
+		url := os.Getenv("ARGOSERVER_API")
+		authToken := "Bearer " + os.Getenv("ARGO_TOKEN")
+		argoServer := NewArgoServer(url, authToken)
+		argoApp := NewApp(argoServer, appName)
+		events := argoApp.Events()
 
-		req, err := http.NewRequest("GET", url, nil)
-		req.Header.Add("authorization", barer)
-
-		client := &http.Client{}
-		res, err := client.Do(req)
-		fatal(err, "error occured while connecting to ARGOCD_SERVER %v")
-
-		data, err := ioutil.ReadAll(res.Body)
-		if err != nil {
-			log.Fatalf("error reading data from response body. %v", data)
-		}
-
-		var response = &Response{}
-		err = json.Unmarshal(data, response)
-		fatal(err, "failed while unmarshalling json")
-
-		for idx, event := range response.Items {
-			event.ID = idx
+		for _, event := range events {
 			eventPrinter.printArgoEvent(event)
 		}
 
 		time.Sleep(time.Millisecond * 60)
 	}
 }
-
