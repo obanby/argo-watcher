@@ -1,0 +1,1368 @@
+{
+  "metadata": {
+    "resourceVersion": "16777"
+  },
+  "items": [
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5d91e8dcdf7",
+        "namespace": "argocd",
+        "uid": "2e207cf1-dbf3-4585-8143-e21883188348",
+        "resourceVersion": "9234",
+        "creationTimestamp": "2021-09-04T14:48:12Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:48:12Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "8840"
+      },
+      "reason": "ResourceDeleted",
+      "message": "Unknown user deleted resource apps/ReplicaSet 'guestbook-ui-6ff5bdcfcb'",
+      "source": {
+        "component": "argocd-server"
+      },
+      "firstTimestamp": "2021-09-04T14:48:12Z",
+      "lastTimestamp": "2021-09-04T14:48:12Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5e386933d4c",
+        "namespace": "argocd",
+        "uid": "82096301-cc23-4178-a85d-cef0c0ae4841",
+        "resourceVersion": "9356",
+        "creationTimestamp": "2021-09-04T14:48:56Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:48:56Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9270"
+      },
+      "reason": "ResourceDeleted",
+      "message": "Unknown user deleted resource /Pod 'guestbook-ui-6ff5bdcfcb-n9g4g'",
+      "source": {
+        "component": "argocd-server"
+      },
+      "firstTimestamp": "2021-09-04T14:48:56Z",
+      "lastTimestamp": "2021-09-04T14:48:56Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5e4c755a240",
+        "namespace": "argocd",
+        "uid": "7ef9c0c8-9d30-4911-894e-504e5e70b9ce",
+        "resourceVersion": "9390",
+        "creationTimestamp": "2021-09-04T14:49:02Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:49:02Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9372"
+      },
+      "reason": "ResourceDeleted",
+      "message": "Unknown user deleted resource apps/ReplicaSet 'guestbook-ui-6ff5bdcfcb'",
+      "source": {
+        "component": "argocd-server"
+      },
+      "firstTimestamp": "2021-09-04T14:49:02Z",
+      "lastTimestamp": "2021-09-04T14:49:02Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5eea96df7ed",
+        "namespace": "argocd",
+        "uid": "a80dcea7-c52d-4095-8372-a6054f7eeeae",
+        "resourceVersion": "9516",
+        "creationTimestamp": "2021-09-04T14:49:44Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:49:44Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9515"
+      },
+      "reason": "OperationStarted",
+      "message": "Unknown user initiated sync to HEAD (02021f72ec2b4a240cc00615c17e320b74003447)",
+      "source": {
+        "component": "argocd-server"
+      },
+      "firstTimestamp": "2021-09-04T14:49:44Z",
+      "lastTimestamp": "2021-09-04T14:49:44Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5eee83f4ca1",
+        "namespace": "argocd",
+        "uid": "a3983bf4-d749-4c1d-a65d-398dbebc7bf7",
+        "resourceVersion": "9523",
+        "creationTimestamp": "2021-09-04T14:49:45Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:49:45Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9515"
+      },
+      "reason": "OperationCompleted",
+      "message": "Sync operation to 02021f72ec2b4a240cc00615c17e320b74003447 succeeded",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:49:45Z",
+      "lastTimestamp": "2021-09-04T14:49:45Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5f9c953b7b9",
+        "namespace": "argocd",
+        "uid": "db3bef22-265a-4ad2-948f-35882c810bf6",
+        "resourceVersion": "9623",
+        "creationTimestamp": "2021-09-04T14:50:32Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:50:32Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9622"
+      },
+      "reason": "OperationStarted",
+      "message": "Unknown user initiated sync to HEAD (5a4ab415d85419516870bada4afeb87b109a0c00)",
+      "source": {
+        "component": "argocd-server"
+      },
+      "firstTimestamp": "2021-09-04T14:50:32Z",
+      "lastTimestamp": "2021-09-04T14:50:32Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5fa062c221e",
+        "namespace": "argocd",
+        "uid": "1ae890e3-78c4-4bda-85d8-a0f15d2f46e8",
+        "resourceVersion": "9634",
+        "creationTimestamp": "2021-09-04T14:50:33Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:50:33Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9624"
+      },
+      "reason": "ResourceUpdated",
+      "message": "Updated sync status: Synced -> OutOfSync",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:50:33Z",
+      "lastTimestamp": "2021-09-04T14:50:33Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5fa0a4e2022",
+        "namespace": "argocd",
+        "uid": "540b57f1-eee1-4802-af81-b8c680e3097a",
+        "resourceVersion": "9650",
+        "creationTimestamp": "2021-09-04T14:50:33Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:50:33Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9622"
+      },
+      "reason": "OperationCompleted",
+      "message": "Sync operation to 5a4ab415d85419516870bada4afeb87b109a0c00 succeeded",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:50:33Z",
+      "lastTimestamp": "2021-09-04T14:50:33Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5fa0a6d3db1",
+        "namespace": "argocd",
+        "uid": "b1563a2b-c26d-44c4-850e-27c9614935a4",
+        "resourceVersion": "9648",
+        "creationTimestamp": "2021-09-04T14:50:33Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:50:33Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9636"
+      },
+      "reason": "ResourceUpdated",
+      "message": "Updated sync status: Synced -> OutOfSync",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:50:33Z",
+      "lastTimestamp": "2021-09-04T14:50:33Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5fa0e3bfdc3",
+        "namespace": "argocd",
+        "uid": "acebd444-fada-4bf0-94d9-b019242a554f",
+        "resourceVersion": "9653",
+        "creationTimestamp": "2021-09-04T14:50:33Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:50:33Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9647"
+      },
+      "reason": "ResourceUpdated",
+      "message": "Updated health status: Progressing -> Healthy",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:50:33Z",
+      "lastTimestamp": "2021-09-04T14:50:33Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5fcd3d50c09",
+        "namespace": "argocd",
+        "uid": "be0d1063-dbf8-4d10-898f-e5b79c493c2d",
+        "resourceVersion": "9679",
+        "creationTimestamp": "2021-09-04T14:50:45Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:50:45Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9667"
+      },
+      "reason": "ResourceDeleted",
+      "message": "Unknown user deleted resource apps/ReplicaSet 'guestbook-ui-6ff5bdcfcb'",
+      "source": {
+        "component": "argocd-server"
+      },
+      "firstTimestamp": "2021-09-04T14:50:45Z",
+      "lastTimestamp": "2021-09-04T14:50:45Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5ff813ba020",
+        "namespace": "argocd",
+        "uid": "69a579ef-48cf-4d28-bf35-a0c5c0127e40",
+        "resourceVersion": "9704",
+        "creationTimestamp": "2021-09-04T14:50:56Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:50:56Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9703"
+      },
+      "reason": "OperationStarted",
+      "message": "Unknown user initiated sync to HEAD (5a4ab415d85419516870bada4afeb87b109a0c00)",
+      "source": {
+        "component": "argocd-server"
+      },
+      "firstTimestamp": "2021-09-04T14:50:56Z",
+      "lastTimestamp": "2021-09-04T14:50:56Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a5ff994ca703",
+        "namespace": "argocd",
+        "uid": "74f2bbf6-5fc9-4955-bae3-938bfe985868",
+        "resourceVersion": "9708",
+        "creationTimestamp": "2021-09-04T14:50:57Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:50:57Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9703"
+      },
+      "reason": "OperationCompleted",
+      "message": "Sync operation to 5a4ab415d85419516870bada4afeb87b109a0c00 succeeded",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:50:57Z",
+      "lastTimestamp": "2021-09-04T14:50:57Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a6019d8281e6",
+        "namespace": "argocd",
+        "uid": "dcc38378-3c9c-40c3-a0e6-b9a5defd842c",
+        "resourceVersion": "9731",
+        "creationTimestamp": "2021-09-04T14:51:05Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:51:05Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9730"
+      },
+      "reason": "OperationStarted",
+      "message": "Unknown user initiated partial sync to HEAD (5a4ab415d85419516870bada4afeb87b109a0c00)",
+      "source": {
+        "component": "argocd-server"
+      },
+      "firstTimestamp": "2021-09-04T14:51:05Z",
+      "lastTimestamp": "2021-09-04T14:51:05Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a601b255f2de",
+        "namespace": "argocd",
+        "uid": "c0414702-5535-4598-bb67-df891503f275",
+        "resourceVersion": "9734",
+        "creationTimestamp": "2021-09-04T14:51:06Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:51:06Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9730"
+      },
+      "reason": "OperationCompleted",
+      "message": "Partial sync operation to 5a4ab415d85419516870bada4afeb87b109a0c00 succeeded",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:51:06Z",
+      "lastTimestamp": "2021-09-04T14:51:06Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a604a873969f",
+        "namespace": "argocd",
+        "uid": "7327b106-aa69-4a4c-aa7c-a47d7cb8cd06",
+        "resourceVersion": "9760",
+        "creationTimestamp": "2021-09-04T14:51:19Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:51:19Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9759"
+      },
+      "reason": "OperationStarted",
+      "message": "Unknown user initiated partial sync to HEAD (5a4ab415d85419516870bada4afeb87b109a0c00)",
+      "source": {
+        "component": "argocd-server"
+      },
+      "firstTimestamp": "2021-09-04T14:51:19Z",
+      "lastTimestamp": "2021-09-04T14:51:19Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a604b4b38c8a",
+        "namespace": "argocd",
+        "uid": "90322c6e-b50e-4e71-b576-fe974e153ec8",
+        "resourceVersion": "9764",
+        "creationTimestamp": "2021-09-04T14:51:19Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:51:19Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9761"
+      },
+      "reason": "ResourceUpdated",
+      "message": "Updated health status: Healthy -> Progressing",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:51:19Z",
+      "lastTimestamp": "2021-09-04T14:51:19Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a604b74d76cf",
+        "namespace": "argocd",
+        "uid": "e86d40d7-9c5c-4289-9801-deaedeed7696",
+        "resourceVersion": "9767",
+        "creationTimestamp": "2021-09-04T14:51:19Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:51:19Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9759"
+      },
+      "reason": "OperationCompleted",
+      "message": "Partial sync operation to 5a4ab415d85419516870bada4afeb87b109a0c00 succeeded",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:51:19Z",
+      "lastTimestamp": "2021-09-04T14:51:19Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a604c2cca2cf",
+        "namespace": "argocd",
+        "uid": "2981f013-5e60-433a-991d-6e1c00f2f9eb",
+        "resourceVersion": "9770",
+        "creationTimestamp": "2021-09-04T14:51:19Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:51:19Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9765"
+      },
+      "reason": "ResourceUpdated",
+      "message": "Updated sync status: OutOfSync -> Synced",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:51:19Z",
+      "lastTimestamp": "2021-09-04T14:51:19Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    },
+    {
+      "metadata": {
+        "name": "guestbook-example-app.16a1a642e8f7baa2",
+        "namespace": "argocd",
+        "uid": "137caa32-ab9e-437e-8ff3-18205feb2a21",
+        "resourceVersion": "10280",
+        "creationTimestamp": "2021-09-04T14:55:46Z",
+        "annotations": {
+          "dest-namespace": "argoexamples",
+          "dest-server": "https://kubernetes.default.svc"
+        },
+        "managedFields": [
+          {
+            "manager": "main",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-09-04T14:55:46Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:dest-namespace": {},
+                  "f:dest-server": {}
+                }
+              },
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            }
+          }
+        ]
+      },
+      "involvedObject": {
+        "kind": "Application",
+        "namespace": "argocd",
+        "name": "guestbook-example-app",
+        "uid": "fcbf2898-5214-4586-ab78-3b825d1e6761",
+        "apiVersion": "argoproj.io/v1alpha1",
+        "resourceVersion": "9771"
+      },
+      "reason": "ResourceUpdated",
+      "message": "Updated health status: Progressing -> Healthy",
+      "source": {
+        "component": "argocd-application-controller"
+      },
+      "firstTimestamp": "2021-09-04T14:55:46Z",
+      "lastTimestamp": "2021-09-04T14:55:46Z",
+      "count": 1,
+      "type": "Normal",
+      "eventTime": null,
+      "reportingComponent": "",
+      "reportingInstance": ""
+    }
+  ]
+}
+
