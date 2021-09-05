@@ -34,8 +34,8 @@ func watchEvents(appName string) {
 	for {
 		url := os.Getenv("ARGOSERVER_API")
 		authToken := "Bearer " + os.Getenv("ARGO_TOKEN")
-		argoServer := NewArgoServer(url, authToken)
-		argoApp := NewApp(argoServer, appName)
+		argoClient := NewClient(url, authToken)
+		argoApp := NewApp(argoClient, appName)
 		events := argoApp.Events()
 
 		for _, event := range events {

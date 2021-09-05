@@ -6,9 +6,30 @@ import (
 	"net/http"
 )
 
+type ArgoClient interface {
+	SetURL(url string)
+	URL() string
+	Get() []byte
+}
+
 type Client struct {
 	url     string
 	headers map[string]string
+}
+
+func NewClient(url string, authToken string) ArgoClient {
+	return &Client{
+		url:     url,
+		headers: map[string]string{"authorization": "Bearer " + authToken},
+	}
+}
+
+func (c *Client) URL() string {
+	return c.url
+}
+
+func (c *Client) SetURL(url string) {
+	c.url = url
 }
 
 func (c *Client) Get() []byte {

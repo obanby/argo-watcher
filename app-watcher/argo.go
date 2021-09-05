@@ -6,14 +6,8 @@ import (
 	"log"
 )
 
-type ArgoServer struct {
-	url       string
-	authToken string
-}
-
-type Application struct {
-	name       string
-	serverInfo *ArgoServer
+type ArgoResponse struct {
+	Items []ArgoEvent `json:"items"`
 }
 
 type ArgoEvent struct {
@@ -23,28 +17,25 @@ type ArgoEvent struct {
 	TimeStamp string `json:"firstTimestamp"`
 }
 
-type ArgoResponse struct {
-	Items []ArgoEvent `json:"items"`
+type Application struct {
+	name   string
+	client ArgoClient
 }
 
-func NewArgoServer(url string, authToken string) *ArgoServer {
-	return &ArgoServer{url: url, authToken: authToken}
-}
-
-func NewApp(serverInfo *ArgoServer, name string) *Application {
-	return &Application{name: name, serverInfo: serverInfo}
+func NewApp(client ArgoClient, name string) *Application {
+	return &Application{
+		name:   name,
+		client: client,
+	}
 }
 
 func (app *Application) Events() []ArgoEvent {
-	var client = &Client{
-		url:     fmt.Sprintf("%s/applications/%s/events", app.serverInfo.url, app.name),
-		headers: map[string]string{"authorization": "Bearer " + app.serverInfo.authToken},
-	}
+	app.client.SetURL(fmt.Sprintf("%s/applications/%s/events", app.client.URL(), app.name))
 
 	var argoResponse = &ArgoResponse{}
-	err := json.Unmarshal(client.Get(), argoResponse)
+	err := json.Unmarshal(app.client.Get(), argoResponse)
 	if err != nil {
-		log.Fatalf("error unmarshalling data from response body.")
+		log.Fatalf("error unmarshalling data from response body: %v", err)
 	}
 
 	for idx, event := range argoResponse.Items {
