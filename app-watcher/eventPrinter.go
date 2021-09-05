@@ -2,16 +2,20 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"os"
 	"strings"
 )
 
 type EventPrinter struct {
-	events []ArgoEvent
+	writer io.Writer
+	events  []ArgoEvent
 }
 
 func NewEventPrinter() *EventPrinter {
 	var eventPrinter = EventPrinter{}
 	eventPrinter.events = make([]ArgoEvent, 0, 100)
+	eventPrinter.writer = os.Stdout
 	return &eventPrinter
 }
 
@@ -19,12 +23,12 @@ func (ep *EventPrinter) add(event ArgoEvent) {
 	ep.events = append(ep.events, event)
 }
 
-func (ep *EventPrinter) printArgoEvent(event ArgoEvent) {
+func (ep *EventPrinter) print(event ArgoEvent) {
 	if ep.isDuplicate(event) {
 		return
 	}
 	ep.add(event)
-	fmt.Printf("%s %s: %s\n", extractTime(event.TimeStamp), event.Reason, event.Message)
+	fmt.Fprintf(ep.writer, "%s %s: %s\n", extractTime(event.TimeStamp), event.Reason, event.Message)
 }
 
 func (ep *EventPrinter) isDuplicate(event ArgoEvent) bool {
@@ -37,7 +41,7 @@ func (ep *EventPrinter) isDuplicate(event ArgoEvent) bool {
 }
 
 func extractTime(timestamp string) string {
-	var extractedTime string
+	extractedTime := timestamp
 	if strings.Contains(timestamp, "Z") {
 		extractedTime = timestamp[:len(timestamp)-1]
 	}

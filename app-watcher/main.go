@@ -39,7 +39,7 @@ func watchEvents(appName string) {
 		events := argoApp.Events()
 
 		for _, event := range events {
-			eventPrinter.printArgoEvent(event)
+			eventPrinter.print(event)
 		}
 
 		time.Sleep(time.Millisecond * 60)
