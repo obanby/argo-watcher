@@ -2,43 +2,62 @@ package main
 
 import (
 	"context"
-	"flag"
 	"log"
 	"os"
 	"time"
 )
 
 func main() {
-	var appName string
-	flag.StringVar(&appName, "name", "", "an argo application name to watch")
-	flag.Parse()
 
-	if appName == "" {
-		log.Fatalf("must provide a valid application name -name=<appname>")
+	argoUrl := os.Getenv("ARGO_SERVER_API")
+	argoToken := os.Getenv("ARGO_TOKEN")
+
+	if len(argoUrl) == 0 || len(argoToken) == 0 {
+		log.Fatal("environment variables ARGO_SERVER_API=<server_url>/api/v1 and ARGO_TOKEN='<secret_token>' must be set")
 	}
 
-	var ctx, cancel = context.WithTimeout(context.Background(), time.Minute * 5)
+	if len(os.Args) < 2 {
+		log.Fatal(usage())
+	}
+
+	context, cancel := context.WithTimeout(context.Background(), time.Minute*5)
 	defer cancel()
-	watchEvents(ctx, appName)
+
+	argoClient := NewArgoClient(context, argoUrl, argoToken)
+
+	command := os.Args[1]
+	switch command {
+	case "events":
+		if  len(os.Args) < 3 || len(os.Args[2]) == 0 {
+			log.Fatalf(usage())
+		}
+		watchEvents(argoClient, os.Args[2])
+
+	case "synchistory":
+		watchRepo(argoClient)
+
+	default:
+		usage()
+	}
 }
 
-// TODO:
-//  - Extract only the time stamp without the date and print it [√]
-//  - Add `reason` property to the log [√]
-//  - Add unit tests to all of them [√] ------> Check how to create a fake server to test clinet.go
-//  - Add a flag modifier to specify the application name to watch [√]
-// 	- Add ctx so you would be able to time out after 5 minutes [√]
-//  - Add flags to allow using iteration events vs streams
-// 	- Back pressure the requests in case of a long wait time and restart clock the moment messages start flowing
-//  - Add goroutines
+func usage() string {
+	return `
+usage: argo-watch <command> [qualifiers]
+	commands:
+		events <app-name>
+			Watches for events for a given application and prints to stdout.
+			Must provide an application name
+		synchistory
+			Watches for all git sync history in realtime and prints changes to stdout 
+`
+}
 
-func watchEvents(ctx context.Context, appName string) {
+func watchEvents(client ArgoServerClient, appName string) {
 	var eventPrinter = NewEventPrinter()
+	argoApp := NewApp(client, appName)
+
 	for {
-		url := os.Getenv("ARGOSERVER_API")
-		authToken := "Bearer " + os.Getenv("ARGO_TOKEN")
-		argoClient := NewClient(ctx, url, authToken)
-		argoApp := NewApp(argoClient, appName)
 		events := argoApp.Events()
 
 		for _, event := range events {
@@ -46,5 +65,19 @@ func watchEvents(ctx context.Context, appName string) {
 		}
 
 		time.Sleep(time.Millisecond * 60)
+	}
+}
+
+func watchRepo(client ArgoServerClient) {
+	ch := make(chan *Repo)
+	var repo = NewRepo(client)
+	repo.client.SetPath("stream/applications")
+	go repo.ProcessHistory(ch, repo.client.Get())
+
+	for {
+		select {
+		case repoResult := <-ch:
+			repoResult.Print()
+		}
 	}
 }

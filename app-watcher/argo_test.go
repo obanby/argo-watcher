@@ -20,11 +20,11 @@ func TestApplication_Events(t *testing.T) {
 }
 
 func TestApplication_Events_timeout(t *testing.T) {
-	 ctx, close := context.WithTimeout(context.Background(), time.Millisecond * 2)
-	 defer close()
-	 mockClient := NewMockClient(ctx, "localhost:8080", "faketoken")
-	 argoApp := NewApp(mockClient, "example-app")
-	 got := argoApp.Events()
+	ctx, cancel := context.WithTimeout(context.Background(), time.Millisecond*2)
+	defer cancel()
+	mockClient := NewMockClient(ctx, "localhost:8080", "faketoken")
+	argoApp := NewApp(mockClient, "example-app")
+	got := argoApp.Events()
 
 	 if len(got) != 0 {
 	 	log.Fatalf("error with context timeout: expected timeout to cause empty events list, got %v", got)

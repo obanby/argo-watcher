@@ -5,6 +5,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"net/http"
 	"time"
 )
 
@@ -14,7 +16,7 @@ type MockClient struct {
 	headers map[string]string
 }
 
-func NewMockClient(ctx context.Context, url string, authToken string) ArgoClient {
+func NewMockClient(ctx context.Context, url string, authToken string) ArgoServerClient {
 	return &MockClient{
 		ctx:     ctx,
 		url:     url,
@@ -30,11 +32,11 @@ func (c *MockClient) Context() context.Context {
 	return c.ctx
 }
 
-func (c *MockClient) SetURL(url string) {
+func (c *MockClient) SetPath(url string) {
 	c.url = url
 }
 
-func (c *MockClient) Get() []byte {
+func (c *MockClient) Get() *http.Response {
 	time.Sleep(time.Millisecond * 3)
 
 	response := ArgoResponse{Items: argoEventsTable}
@@ -43,9 +45,11 @@ func (c *MockClient) Get() []byte {
 
 	select {
 	case <-c.ctx.Done():
-		fmt.Println("context is done")
-		return []byte{}
+		fmt.Println("done is called")
+		return &http.Response{Body: ioutil.NopCloser(bytes.NewBufferString(""))}
 	default:
-		return buffer.Bytes()
+		return &http.Response{
+			Body: ioutil.NopCloser(bytes.NewBufferString(buffer.String())),
+		}
 	}
 }

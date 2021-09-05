@@ -3,7 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
+	"strings"
 )
 
 type ArgoResponse struct {
@@ -19,10 +21,10 @@ type ArgoEvent struct {
 
 type Application struct {
 	name   string
-	client ArgoClient
+	client ArgoServerClient
 }
 
-func NewApp(client ArgoClient, name string) *Application {
+func NewApp(client ArgoServerClient, name string) *Application {
 	return &Application{
 		name:   name,
 		client: client,
@@ -30,15 +32,26 @@ func NewApp(client ArgoClient, name string) *Application {
 }
 
 func (app *Application) Events() []ArgoEvent {
-	app.client.SetURL(fmt.Sprintf("%s/applications/%s/events", app.client.URL(), app.name))
+	app.client.SetPath(fmt.Sprintf("applications/%s/events", app.name))
 
 	var argoResponse = &ArgoResponse{}
-	var events = app.client.Get()
+	var response = app.client.Get()
+
+	events, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		log.Fatalf("error reading data from response body: %v", string(events))
+	}
+
 	if len(events) == 0 {
 		return []ArgoEvent{}
 	}
 
-	err := json.Unmarshal(events, argoResponse)
+	// TODO: find a better way to handle situation for {"items": null}
+	if strings.Contains(string(events), "\"item\":null") {
+		return []ArgoEvent{}
+	}
+
+	err = json.Unmarshal(events, argoResponse)
 	if err != nil {
 		log.Fatalf("error unmarshalling data from response body: %v", err)
 	}
