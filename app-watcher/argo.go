@@ -33,7 +33,12 @@ func (app *Application) Events() []ArgoEvent {
 	app.client.SetURL(fmt.Sprintf("%s/applications/%s/events", app.client.URL(), app.name))
 
 	var argoResponse = &ArgoResponse{}
-	err := json.Unmarshal(app.client.Get(), argoResponse)
+	var events = app.client.Get()
+	if len(events) == 0 {
+		return []ArgoEvent{}
+	}
+
+	err := json.Unmarshal(events, argoResponse)
 	if err != nil {
 		log.Fatalf("error unmarshalling data from response body: %v", err)
 	}

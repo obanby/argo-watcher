@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -10,15 +11,18 @@ type ArgoClient interface {
 	SetURL(url string)
 	URL() string
 	Get() []byte
+	Context() context.Context
 }
 
 type Client struct {
+	ctx     context.Context
 	url     string
 	headers map[string]string
 }
 
-func NewClient(url string, authToken string) ArgoClient {
+func NewClient(ctx context.Context, url string, authToken string) ArgoClient {
 	return &Client{
+		ctx:     ctx,
 		url:     url,
 		headers: map[string]string{"authorization": "Bearer " + authToken},
 	}
@@ -32,8 +36,12 @@ func (c *Client) SetURL(url string) {
 	c.url = url
 }
 
+func (c *Client) Context() context.Context {
+	return c.ctx
+}
+
 func (c *Client) Get() []byte {
-	req, err := http.NewRequest("GET", c.url, nil)
+	req, err := http.NewRequestWithContext(c.ctx, "GET", c.url, nil)
 	if err != nil {
 		log.Fatalf("error creating request: %v", err)
 	}

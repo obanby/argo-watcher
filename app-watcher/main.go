@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"log"
 	"os"
@@ -16,25 +17,27 @@ func main() {
 		log.Fatalf("must provide a valid application name -name=<appname>")
 	}
 
-	watchEvents(appName)
+	var ctx, cancel = context.WithTimeout(context.Background(), time.Minute * 5)
+	defer cancel()
+	watchEvents(ctx, appName)
 }
 
 // TODO:
 //  - Extract only the time stamp without the date and print it [√]
 //  - Add `reason` property to the log [√]
-//  - Add unit tests to all of them
+//  - Add unit tests to all of them [√] ------> Check how to create a fake server to test clinet.go
+//  - Add a flag modifier to specify the application name to watch [√]
+// 	- Add ctx so you would be able to time out after 5 minutes [√]
 //  - Add flags to allow using iteration events vs streams
-//  - Add a flag modifier to specify the application name to watch
 // 	- Back pressure the requests in case of a long wait time and restart clock the moment messages start flowing
-// 	- Add context so you would be able to time out after 5 minutes
 //  - Add goroutines
 
-func watchEvents(appName string) {
+func watchEvents(ctx context.Context, appName string) {
 	var eventPrinter = NewEventPrinter()
 	for {
 		url := os.Getenv("ARGOSERVER_API")
 		authToken := "Bearer " + os.Getenv("ARGO_TOKEN")
-		argoClient := NewClient(url, authToken)
+		argoClient := NewClient(ctx, url, authToken)
 		argoApp := NewApp(argoClient, appName)
 		events := argoApp.Events()
 
