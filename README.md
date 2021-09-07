@@ -31,11 +31,11 @@ To get the password if argo is running on k8s (assuming you have jq installed)
 
 To watch an application's event, run: `argo-watcher events <app-name>`
 
-![image](../assets/events_example.png)
+![image](https://github.com/obanby/argo-watcher/blob/master/assets/events_example.png)
 
 To watch a repo sync history run: `argo-watcher synchistory`
 
-![image](../assets/repo-synch-history-example.png)
+![image](https://github.com/obanby/argo-watcher/blob/master/assets/repo-synch-history-example.png)
 
 ## Implementation notes
 
