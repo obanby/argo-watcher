@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -32,19 +33,28 @@ func NewRepo(client ArgoServerClient) Repo {
 	}
 }
 
-func (repo *Repo) ProcessHistory(ch chan<- *Repo, response *http.Response) {
+func (repo *Repo) ProcessHistory(receiver chan<- *Repo, response *http.Response) {
 	for {
 		err := json.NewDecoder(response.Body).Decode(repo)
 		if err != nil {
+			if err == io.EOF {
+				close(receiver)
+				return
+			}
 			// we can safely ignore the data here
 			// since sometimes we get a big payload that pollutes the buffer and causes the decoding to fail
 			// the easiest way is to continue and the server will send each request individually on other iterations
 			continue
 		}
-
 		repo.addCommitMsg()
-		ch <- repo
+
+		select {
+		case receiver <- repo:
+		case <-repo.client.Context().Done():
+			return
+		}
 	}
+
 }
 
 func (repo *Repo) addCommitMsg() {
@@ -74,10 +84,10 @@ func (repo *Repo) commitMsg(appName string, revision string) string {
 	return commitMsg.Message
 }
 
-func (repo *Repo) Print()  {
+func (repo *Repo) Print(writer io.Writer) {
 	history := repo.Result.App.Status.History
 	for _, h := range history {
-		fmt.Printf("commit: [%s] app: %s has changed for reason -> %s\n", trimCommitSha(h.Revision), h.Source.Path, h.commitMsg)
+		fmt.Fprintf(writer, "commit: [%s] app: %s has changed for reason -> %s\n", trimCommitSha(h.Revision), h.Source.Path, h.commitMsg)
 	}
 }
 

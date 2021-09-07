@@ -69,15 +69,15 @@ func watchEvents(client ArgoServerClient, appName string) {
 }
 
 func watchRepo(client ArgoServerClient) {
-	ch := make(chan *Repo)
+	receiver := make(chan *Repo)
 	var repo = NewRepo(client)
 	repo.client.SetPath("stream/applications")
-	go repo.ProcessHistory(ch, repo.client.Get())
+	go repo.ProcessHistory(receiver, repo.client.Get())
 
 	for {
 		select {
-		case repoResult := <-ch:
-			repoResult.Print()
+		case repoResult := <-receiver:
+			repoResult.Print(os.Stdout)
 		}
 	}
 }
