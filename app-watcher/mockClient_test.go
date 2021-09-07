@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -45,7 +44,6 @@ func (c *MockClient) Get() *http.Response {
 
 	select {
 	case <-c.ctx.Done():
-		fmt.Println("done is called")
 		return &http.Response{Body: ioutil.NopCloser(bytes.NewBufferString(""))}
 	default:
 		return &http.Response{
