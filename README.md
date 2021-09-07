@@ -5,7 +5,7 @@ A simple cli to watch an argo application's events, and a repository sync histor
 
 In order to run the cli successfully you must have these prerequisites first:
 
-1- You must set the following environment variables
+- You must set the following environment variables
 ```
  export ARGOSERVER_API='<server-endpoint>/api/v1'
  export ARGO_TOKEN='<your-argo-token>'
@@ -22,9 +22,9 @@ To get the password if argo is running on k8s (assuming you have jq installed)
   kubectl get secret argocd-initial-admin-secret -o json -n argocd | jq -r '.data.password' | base64 -d
 ```
 
-2- You must have a running kubernetes with a public api
+- You must have a running kubernetes with a public api
 
-3- Running Argo server
+- Running Argo server
 
 > 💡 I am using KIND (kubernetes in docker) to run local k8s cluster. You can utilize the bootstrap script @
 > local-k8s directory to bootstrap your cluster.
@@ -37,6 +37,16 @@ To watch a repo sync history run: `argo-watcher synchistory`
 
 ![image](https://github.com/obanby/argo-watcher/blob/master/assets/repo-synch-history-example.png)
 
+You can also build the docker image and run the tool straight from a docker container
+```shell
+docker build -t app-watceher .
+
+docker run \
+--network host \
+-e ARGO_SERVER_API=$ARGO_SERVER_API \
+-e ARGO_TOKEN=$ARGO_TOKEN \
+-it app-watceher <command>
+```
 ## Implementation notes
 
 In order to facilitate network communication and mocking, I have created an ArgoClient and a MockClient. Both 
