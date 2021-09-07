@@ -58,9 +58,19 @@ func pathHandler(path string) *http.Response {
 			Body: ioutil.NopCloser(bytes.NewBufferString(buffer.String())),
 		}
 
+	case strings.Contains(path, "error/stream/application"):
+		return &http.Response{
+			Body: ioutil.NopCloser(bytes.NewBufferString(sampleErrorStreamPayLoad())),
+		}
+
 	case strings.Contains(path, "stream/application"):
 		return &http.Response{
 			Body: ioutil.NopCloser(bytes.NewBufferString(sampleStreamPayLoad())),
+		}
+
+	case strings.Contains(path, "error/revisions/"):
+		return &http.Response{
+			Body: ioutil.NopCloser(bytes.NewBufferString(sampleErrorStreamPayLoad())),
 		}
 
 	case strings.Contains(path, "revisions/"):
@@ -107,6 +117,11 @@ func sampleStreamPayLoad() string {
     }
   }
 }
+`
+}
+
+func sampleErrorStreamPayLoad() string {
+	return `
 `
 }
 

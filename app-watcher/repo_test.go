@@ -20,11 +20,12 @@ func TestNewRepo(t *testing.T) {
 	}
 }
 
+// TODO: add table driven test to better document use cases
 func TestProcessHistory(t *testing.T) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
 	defer cancel()
 	mockClient := NewMockClient(ctx, "localhost:8080/rest/api/v1", "faketoken")
-	mockClient.SetPath("/stream/application")
+	mockClient.SetPath("stream/application")
 	repo := NewRepo(mockClient)
 	receiver := make(chan *Repo)
 	go repo.ProcessHistory(receiver, repo.client.Get())
@@ -58,8 +59,12 @@ channelHandler:
 		if len(want) > idx {
 			wantMsg := want[idx]
 			if wantMsg != gotMsg {
-				log.Fatalf("error while Repo.ProccessHistory() = %s  want %s", got, want)
+				log.Fatalf("error while eepo.ProccessHistory() got = %s  want %s", got, want)
 			}
 		}
+	}
+
+	if repoResults == "" {
+		log.Fatalf("error while Repo.ProccessHistory() = got %s want %s", got, want)
 	}
 }
