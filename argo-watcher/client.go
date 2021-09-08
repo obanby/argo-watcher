@@ -55,7 +55,7 @@ func (c *ArgoClient) Get() *http.Response {
 	client := &http.Client{}
 	response, err := client.Do(req)
 	if err != nil {
-		log.Fatalf("error occured while connecting to ARGOCD_SERVER %v", err)
+		log.Fatalf("error occured while connecting to ARGOCD_SERVER: %v", err)
 	}
 
 	return response

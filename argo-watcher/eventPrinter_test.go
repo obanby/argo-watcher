@@ -54,16 +54,16 @@ func TestExtractTime(t *testing.T) {
 }
 
 func TestEventPritner_print(t *testing.T) {
-	var buffer bytes.Buffer
+	var gotBuffer bytes.Buffer
 	eventPrinter := NewEventPrinter()
-	eventPrinter.writer = &buffer
+	eventPrinter.writer = &gotBuffer
 
 	for _, event := range argoEventsTable {
 		want := fmt.Sprintf("%s %s: %s\n", event.TimeStamp, event.Reason, event.Message)
 		eventPrinter.print(event)
-		if want != buffer.String() {
-			t.Fatalf("error in eventPrinter.print(%v) = %s Expected %s", event, buffer.String(), want)
+		if want != gotBuffer.String() {
+			t.Fatalf("error in eventPrinter.print(%v) = %s Expected %s", event, gotBuffer.String(), want)
 		}
-		buffer.Reset()
+		gotBuffer.Reset()
 	}
 }

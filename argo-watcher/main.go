@@ -9,6 +9,7 @@ import (
 
 func main() {
 
+	const RequestTimeOut = 5 * time.Minute
 	argoUrl := os.Getenv("ARGO_SERVER_API")
 	argoToken := os.Getenv("ARGO_TOKEN")
 
@@ -20,15 +21,15 @@ func main() {
 		log.Fatal(usage())
 	}
 
-	context, cancel := context.WithTimeout(context.Background(), time.Minute*5)
+	ctx, cancel := context.WithTimeout(context.Background(), RequestTimeOut)
 	defer cancel()
 
-	argoClient := NewArgoClient(context, argoUrl, argoToken)
+	argoClient := NewArgoClient(ctx, argoUrl, argoToken)
 
 	command := os.Args[1]
 	switch command {
 	case "events":
-		if  len(os.Args) < 3 || len(os.Args[2]) == 0 {
+		if len(os.Args) < 3 || len(os.Args[2]) == 0 {
 			log.Fatalf(usage())
 		}
 		watchEvents(argoClient, os.Args[2])
@@ -46,10 +47,10 @@ func usage() string {
 usage: argo-watch <command> [qualifiers]
 	commands:
 		events <app-name>
-			Watches for events for a given application and prints to stdout.
-			Must provide an application name
+			Watches for events for a given application and prints to console.
+			Must provide an application name.
 		synchistory
-			Watches for all git sync history in realtime and prints changes to stdout 
+			Watches for all git sync history in realtime and prints changes to console.
 `
 }
 
